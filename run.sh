@@ -1,0 +1,22 @@
+/mnt/dolphinfs/ssd_pool/docker/user/hadoop-seccv/anaconda3/envs/pyh/bin/python \
+/mnt/dolphinfs/hdd_pool/docker/user/hadoop-digitalhuman/wangzhenyu/SD_generate_photo_train/train_lora.py \
+--pretrained_model_name_or_path "CompVis/stable-diffusion-v1-4" \
+--train_data_dir "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-digitalhuman/wangzhenyu/SD_generate_photo_train/datasets" \
+--template_dir "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-digitalhuman/wangzhenyu/SD_generate_photo_train/datasets/template_train" \
+--dataset_name "custom_dataset" \
+--output_dir "./output" \
+--num_train_epochs 10 \
+--train_batch_size 16 \
+--learning_rate 1e-4 \
+--train_text_encoder \
+--rank 128 \
+--network_alpha 64 \
+--gradient_accumulation_steps 2 \
+--use_8bit_adam \
+--scale_lr \
+--merge_best_lora_based_face_id \
+--dataloader_num_workers 4 \
+--mixed_precision "fp16" \
+--report_to "tensorboard" \
+--validation_prompt "A identification photo of beautiful girl" \
+--resume_from_checkpoint "./output/pytorch_lora_weights.safetensors"
